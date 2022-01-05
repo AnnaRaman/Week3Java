@@ -2,7 +2,7 @@ package com.spartaglobal;
 
 public class BaseClass
 {
-    private String fn;
+    private String firstName;
     private String lastName;
     private int age;
     private String hobbies;
@@ -31,7 +31,7 @@ public class BaseClass
 
     public BaseClass(String fName, String lName)
     {
-        this.fn = fName;
+        this.firstName = fName;
         this.lastName = lName;
     }
     public BaseClass(String fName, String lName, int hNo, String street, String town)
@@ -45,7 +45,7 @@ public class BaseClass
 
     public String getFullName()
     {
-        return fn + " " + lastName;
+        return firstName + " " + lastName;
     }
 
     public String move()
@@ -63,7 +63,7 @@ public class BaseClass
     public  String toString()
 {
     var addressString = "Address: " + houseNo + " " + street + ", "  + town;
-    return super.toString() + " Name: " + fn + "  " + lastName + " Age: " + age + ". " + addressString;
+    return super.toString() + " Name: " + firstName + "  " + lastName + " Age: " + age + ". " + addressString;
 }
 
     //public int stupidMethod()

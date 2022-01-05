@@ -3,8 +3,8 @@ package com.spartaglobal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BaseClassTests
 {
@@ -14,7 +14,7 @@ public class BaseClassTests
     public void getFullNameTest()
     {
         // create a new BaseClass object, which represents a person
-        var subject = new BaseClass("Cathy", "French");
+        var subject = new Person("Cathy", "French");
         var result = subject.getFullName();
         Assertions.assertEquals("Cathy French", result);
     }
@@ -24,7 +24,7 @@ public class BaseClassTests
     public void getFullNameTestBlank()
     {
         // create a new BaseClass object, which represents a person
-        var subject = new BaseClass("", "");
+        var subject = new Person("", "");
         var result = subject.getFullName();
         Assertions.assertEquals(" ", result);
     }
@@ -33,19 +33,19 @@ public class BaseClassTests
     @DisplayName("getAge and setAge methods work correctly")
     public void ageTest()
     {
-        var subject = new BaseClass("A", "B");
+        var subject = new Person("A", "B");
         subject.setAge(35);
-        Assertions.assertEquals(35, subject.getAge());
+        assertEquals(35, subject.getAge());
     }
 
     @Test
     @DisplayName("toString returns correct information")
     public void ToStringTest()
     {
-        var subject = new BaseClass("Cathy", "French", 4, "High Street", "Stafford");
+        var subject = new Person("Cathy", "French", 4, "High Street", "Stafford");
         subject.setAge(22);
         var result = subject.toString();
-        Assertions.assertTrue( result.contains("Name: Cathy  French Age: 22. Address: 4 High Street, Stafford"));
-        Assertions.assertTrue( result.contains("BaseClass"));
+        Assertions.assertTrue( result.contains("Name: Cathy French Age: 22. Address: 4 High Street, Stafford"));
+        Assertions.assertTrue( result.contains("Person"));
     }
 }
